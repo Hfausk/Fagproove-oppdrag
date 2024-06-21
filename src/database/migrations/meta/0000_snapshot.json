@@ -1,5 +1,5 @@
 {
-  "id": "ef2ed28a-49fc-4a8d-9ce4-633ef8c8b122",
+  "id": "1924a703-f262-441d-8308-d09f7b17e25c",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -30,21 +30,27 @@
       "name": "lending",
       "schema": "",
       "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
+        "book_id": {
+          "name": "book_id",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true
         },
-        "created_at": {
-          "name": "created_at",
+        "student_id": {
+          "name": "student_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lent_at": {
+          "name": "lent_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
         },
-        "updated_at": {
-          "name": "updated_at",
+        "delivered_at": {
+          "name": "delivered_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false
@@ -52,12 +58,12 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "lending_id_books_id_fk": {
-          "name": "lending_id_books_id_fk",
+        "lending_book_id_books_id_fk": {
+          "name": "lending_book_id_books_id_fk",
           "tableFrom": "lending",
           "tableTo": "books",
           "columnsFrom": [
-            "id"
+            "book_id"
           ],
           "columnsTo": [
             "id"
@@ -65,12 +71,12 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "lending_id_students_id_fk": {
-          "name": "lending_id_students_id_fk",
+        "lending_student_id_students_id_fk": {
+          "name": "lending_student_id_students_id_fk",
           "tableFrom": "lending",
           "tableTo": "students",
           "columnsFrom": [
-            "id"
+            "student_id"
           ],
           "columnsTo": [
             "id"
@@ -79,7 +85,16 @@
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {},
+      "compositePrimaryKeys": {
+        "lending_book_id_student_id_lent_at_pk": {
+          "name": "lending_book_id_student_id_lent_at_pk",
+          "columns": [
+            "book_id",
+            "student_id",
+            "lent_at"
+          ]
+        }
+      },
       "uniqueConstraints": {}
     },
     "public.students": {

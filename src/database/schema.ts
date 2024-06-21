@@ -21,10 +21,10 @@ export const booksRelation = relations(books, ({ many }) => ({
 }));
 
 export const lending = pgTable('lending', {
-    bookId: serial('id').notNull().references(() => books.id),
-    studentId: serial('id').notNull().references(() => students.id),
-    lentAt: timestamp('created_at').notNull().defaultNow(),
-    deliverdAt: timestamp('updated_at'),
+    bookId: integer('book_id').notNull().references(() => books.id),
+    studentId: integer('student_id').notNull().references(() => students.id),
+    lentAt: timestamp('lent_at').notNull().defaultNow(),
+    deliverdAt: timestamp('delivered_at'),
 }, (table) => {
     return {
         pk: primaryKey({ columns: [table.bookId, table.studentId, table.lentAt] })
