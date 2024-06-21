@@ -1,5 +1,6 @@
 import React from "react";
 import { Separator } from "../ui/separator";
+import Link from "next/link";
 
 
 export default function TopBar() {
@@ -11,10 +12,10 @@ export default function TopBar() {
           <h1 className=" text-3xl">AKADEMIET</h1>
           <h2> UtlånsSystem</h2>
         </div>
-        <div className="flex gap-2">
-          <a href="/books">Bøker</a>
+        <div className="flex gap-2 h-full items-center">
+          <Link href="/books">Bøker</Link>
           <Separator orientation="vertical" /> 
-          <a href="/students">Elever</a>
+          <Link href="/students">Elever</Link>
         </div>
 
       </div>
