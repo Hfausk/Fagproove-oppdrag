@@ -1,11 +1,8 @@
 "use server"
 
 
-
-import { getAllStudents } from "../database/crud/fetch";
-
 export default async function Home() {
-  const students = await getAllStudents();
+
 
 
   return (
