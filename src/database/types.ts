@@ -7,14 +7,14 @@ export type Lending = {
     deliverdAt: Date | null;
 }
 
-export type Students = {
+export type Student = {
     id: number;
     name: string;
-    lendings: Lending[];
+    lending: Lending[];
 }
 
-export type Books = {
+export type Book = {
     id: number;
     name: string;
-    lendings: Lending[];
+    lending: Lending[];
 }
