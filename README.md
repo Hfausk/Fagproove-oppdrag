@@ -11,7 +11,9 @@ Prototypen skal kunne:
 - Se historikk på hvilke bøker en spesifikk elev har lånt.
 
 
-#### 
+### Hvordan å sette opp
+
+ Todo
 
 
 ### Teknologier brukt i prosjekt
