@@ -1,7 +1,7 @@
 
 import { unstable_noStore as noStore } from 'next/cache';
 import { db } from '../db'
-import { books, lending, students } from '../schema';
+import { books, students } from '../schema';
 import { eq } from 'drizzle-orm';
 
 
