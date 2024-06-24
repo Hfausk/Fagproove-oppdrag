@@ -10,11 +10,11 @@ export type Lending = {
 export type Student = {
     id: number;
     name: string;
-    lending: Lending[];
+    lending?: Lending[];
 }
 
 export type Book = {
     id: number;
     name: string;
-    lending: Lending[];
+    whoHasIt?: Student;
 }

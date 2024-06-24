@@ -19,8 +19,27 @@ export async function getAllBooks() {
     noStore() // fix for the next cache issue
 
     const books = await db.query.books.findMany({
-        orderBy: (book, { asc }) => [asc(book.name)]
+        orderBy: (book, { asc }) => [asc(book.name)],
+        with: {
+            lending: {
+                columns: {
+                },
+                with: {
+                    student: {
+                        
+                    }
+                }
+            }
+        }
     })
 
-    return books
+    const formatedBooks = books.map((book) => {
+        return {
+            id: book.id,
+            name: book.name,
+            whoHasIt: book.lending[0]?.student || { id: 0, name: 'No one'}
+        }
+    })
+
+    return formatedBooks
 }
