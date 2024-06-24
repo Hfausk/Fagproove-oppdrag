@@ -11,7 +11,9 @@ Prototypen skal kunne:
 - Se historikk på hvilke bøker en spesifikk elev har lånt.
 
 
-#### 
+### Hvordan å sette opp
+
+ Todo
 
 
 ### Teknologier brukt i prosjekt
@@ -22,4 +24,11 @@ Prototypen skal kunne:
 - UI: [Shadcn/ui](https://ui.shadcn.com/)
 
 
-##
+
+
+
+
+
+## Log fra dag til dag
+
+- [Fredag 21.06.2024](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/dagslog/Fredag(21.06.2024).md)
