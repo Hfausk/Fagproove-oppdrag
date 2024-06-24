@@ -11,7 +11,6 @@ export default async function page({params }: {params:{slug: string}}) {
 
 
 
-
     return (
       <main className="flex min-h-screen flex-col items-center p-24">
         <div className="bg-red-400 w-full">Title</div>
@@ -20,8 +19,11 @@ export default async function page({params }: {params:{slug: string}}) {
           <p>assign</p>
         </div>
         <div className="bg-red-400 w-full">Lend history</div>
-        <pre>{JSON.stringify(book, undefined, 2)}</pre>
+        <div className="w-full">
         <DataTable columns={columns} data={book!.lending} />
+
+        </div>
+        <pre>{JSON.stringify(book, undefined, 2)}</pre>
       </main>
     );
 }
