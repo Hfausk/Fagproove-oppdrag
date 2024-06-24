@@ -4,7 +4,7 @@ import React from "react";
 import { getAllBooks } from "../../database/crud/fetch";
 
 import { DataTable } from "../../components/datatable/data-table";
-import { columns } from "../../components/datatable/columns";
+import { columns } from "./columns";
 
 
 

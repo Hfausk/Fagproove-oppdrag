@@ -8,15 +8,27 @@ import { eq } from 'drizzle-orm';
 export async function getBookById( bookId: number) {
     noStore()
 
-    const book = await db.select().from(books).where(eq(books.id, bookId))
-
-    return book[0]
+    const Book = await db.query.books.findFirst({
+        where: eq(books.id, bookId),
+        with: {
+            lending: {
+                with: {
+                    student: {}
+                }
+            }
+        }
+    })
+    return Book
 }
+
+
+
 
 export async function getStudentById( studentId: number) {
     noStore()
 
     const student = await db.select().from(students).where(eq(students.id, studentId))
+    
 
     return student[0]
 }
