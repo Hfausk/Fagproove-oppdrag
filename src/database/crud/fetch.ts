@@ -22,8 +22,7 @@ export async function getAllBooks() {
         orderBy: (book, { asc }) => [asc(book.name)],
         with: {
             lending: {
-                columns: {
-                },
+                    where: (lending, { isNull }) => isNull(lending.deliverdAt),
                 with: {
                     student: {
                         
@@ -32,6 +31,8 @@ export async function getAllBooks() {
             }
         }
     })
+
+    console.log("Books",JSON.stringify(books, undefined , 2))
 
     const formatedBooks = books.map((book) => {
         return {
