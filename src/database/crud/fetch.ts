@@ -37,7 +37,7 @@ export async function getAllBooks() {
         return {
             id: book.id,
             name: book.name,
-            whoHasIt: book.lending[0]?.student
+            whoHasIt: book.lending[0]?.student || { id: 0, name: 'No one'}
         }
     })
 
