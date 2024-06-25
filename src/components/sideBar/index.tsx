@@ -10,7 +10,7 @@ export default function SideBar() {
             <div>
                 <Link className='text-3xl w-full' href="/books">Bøker</Link>
                 <Separator />
-                <p>Assign Book</p>
+                <Link className='text-1xl w-full' href="/lend">Assign book</Link>
             </div>
             <div>
                 <Separator />
