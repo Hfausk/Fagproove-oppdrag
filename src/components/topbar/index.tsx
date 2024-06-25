@@ -13,9 +13,6 @@ export default function TopBar() {
           <h2> UtlånsSystem</h2>
         </div>
         <div className="flex gap-2 h-full items-center">
-          <Link href="/books">Bøker</Link>
-          <Separator orientation="vertical" /> 
-          <Link href="/students">Elever</Link>
         </div>
 
       </div>
