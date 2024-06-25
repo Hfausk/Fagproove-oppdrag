@@ -22,6 +22,10 @@ Prototypen skal kunne:
 - Database: [Neon](https://neon.tech/)
 - ORM: [Drizzle](https://orm.drizzle.team/)
 - UI: [Shadcn/ui](https://ui.shadcn.com/)
+- UI tables: [TanStack](https://tanstack.com/table/latest)
+- FormValidation: [Zod](https://zod.dev/)
+
+
 
 
 
