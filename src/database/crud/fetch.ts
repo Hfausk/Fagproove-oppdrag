@@ -34,13 +34,36 @@ export async function getAllBooks() {
         }
     })
 
-    console.log("Books",JSON.stringify(books, undefined , 2))
-
     const formatedBooks = books.map((book) => {
         return {
             id: book.id,
             name: book.name,
             whoHasIt: book.lending[0]?.student || { id: 0, name: 'No one'}
+        }
+    })
+
+    return formatedBooks
+}
+
+// get all books that are not lent Note that this is a bit of a hack as the book needs to already be in the lending table to be able to be lent
+// For now just make sure that all new books are added to the lending table with a null deliverdAt
+export async function getAllUnlentBooks() {
+    noStore() // fix for the next cache issue
+
+    const filterBooks = await db.query.lending.findMany({
+        where: (lending, { isNull }) => isNull(lending.deliverdAt),
+        with: {
+            book: {
+                
+            }
+        }
+
+    })
+
+    const formatedBooks = filterBooks.map((book) => {
+        return {
+            id: book.book.id,
+            name: book.book.name,
         }
     })
 
