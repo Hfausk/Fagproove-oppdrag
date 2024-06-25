@@ -23,7 +23,8 @@ Prototypen skal kunne:
 - ORM: [Drizzle](https://orm.drizzle.team/)
 - UI: [Shadcn/ui](https://ui.shadcn.com/)
 - UI tables: [TanStack](https://tanstack.com/table/latest)
-- FormValidation: [Zod](https://zod.dev/)
+- UI: [cmdk](https://github.com/pacocoursey/cmdk)
+
 
 
 
