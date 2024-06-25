@@ -4,7 +4,7 @@ import React from "react";
 import { getBookById } from "@/database/crud/getItemById";
 import { DataTable } from "@/components/datatable/data-table";
 import { columns } from "./columns";
-import { InputField } from "@/components/InputField";
+import { InputField } from "@/components/InputField/bookInput";
 import Link from "next/link";
 
 export default async function page({ params }: { params: { slug: string } }) {

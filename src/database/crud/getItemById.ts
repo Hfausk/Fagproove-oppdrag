@@ -27,8 +27,19 @@ export async function getBookById( bookId: number) {
 export async function getStudentById( studentId: number) {
     noStore()
 
-    const student = await db.select().from(students).where(eq(students.id, studentId))
+    const Student = await db.query.students.findFirst({
+        where: eq(students.id, studentId),
+        with: {
+            lending: {
+                with: {
+                    book: {}
+                }
+            }
+        }
+    })
+
+
     
 
-    return student[0]
+    return Student
 }
