@@ -14,19 +14,15 @@ export function InputField({ inputId, itemId, itemText }: { inputId: string, ite
 
     return (
         <>
-
-                    <input name='input_text'
-                        id={inputId}
-                        onBlur={() => { handleSubmit(inputText) }}
-                        autoFocus
-                        value={inputText}
-                        className='bg-transparent border-grey-500 border-2'
-                        onChange={(event) => { setInputText(event.target.value) }}
-                        onKeyDown={(event) => { if (event.key === 'Enter') { handleSubmit(inputText) } }}
-                    ></input>
-           
-
-
+            <input name='input_text'
+                id={inputId}
+                onBlur={() => { handleSubmit(inputText) }}
+                autoFocus
+                value={inputText}
+                className='bg-transparent border-grey-500 border-2'
+                onChange={(event) => { setInputText(event.target.value) }}
+                onKeyDown={(event) => { if (event.key === 'Enter') { handleSubmit(inputText) } }}
+            ></input>
         </>
     )
 
