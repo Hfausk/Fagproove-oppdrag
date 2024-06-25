@@ -1,8 +1,8 @@
 "use server"
 
-import { unstable_noStore as noStore } from 'next/cache';
-import { lending, students } from '../schema';
-import { eq } from 'drizzle-orm';
+import { unstable_noStore as noStore, revalidatePath } from 'next/cache';
+import { lending, books, students } from '../schema';
+import { eq, or, sql } from 'drizzle-orm';
 import { db } from '../db'
 
 
@@ -24,10 +24,10 @@ export async function getAllBooks() {
         orderBy: (book, { asc }) => [asc(book.name)],
         with: {
             lending: {
-                    where: (lending, { isNull }) => isNull(lending.deliverdAt),
+                where: (lending, { isNull }) => isNull(lending.deliverdAt),
                 with: {
                     student: {
-                        
+
                     }
                 }
             }
@@ -38,34 +38,35 @@ export async function getAllBooks() {
         return {
             id: book.id,
             name: book.name,
-            whoHasIt: book.lending[0]?.student || { id: 0, name: 'No one'}
+            whoHasIt: book.lending[0]?.student || { id: 0, name: 'No one' }
         }
     })
-
+    revalidatePath("/")
     return formatedBooks
 }
 
-// get all books that are not lent Note that this is a bit of a hack as the book needs to already be in the lending table to be able to be lent
-// For now just make sure that all new books are added to the lending table with a null deliverdAt
+
 export async function getAllUnlentBooks() {
     noStore() // fix for the next cache issue
 
-    const filterBooks = await db.query.lending.findMany({
-        where: (lending, { isNull }) => isNull(lending.deliverdAt),
+    const unlentBook = await db.query.books.findMany({
+        columns: {
+            id: true,
+            name: true
+        },
         with: {
-            book: {
-                
+            lending: {
+                where: (lending, { isNull }) => isNull(lending.deliverdAt),
             }
         }
 
+    }).then((books) => {
+        return books.filter((book) => {
+            return book.lending.length === 0
+        })
     })
 
-    const formatedBooks = filterBooks.map((book) => {
-        return {
-            id: book.book.id,
-            name: book.book.name,
-        }
-    })
 
-    return formatedBooks
+    revalidatePath("/")
+    return unlentBook
 }
