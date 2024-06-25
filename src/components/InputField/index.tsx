@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { updateBookText } from '@/database/crud/update'
 
 
-export function InputField({ itemId, itemText }: { itemId: number, itemText: string }) {
+export function InputField({ inputId, itemId, itemText }: { inputId: string, itemId: number, itemText: string }) {
     const [inputText, setInputText] = useState(itemText)
 
 
@@ -16,6 +16,7 @@ export function InputField({ itemId, itemText }: { itemId: number, itemText: str
         <>
 
                     <input name='input_text'
+                        id={inputId}
                         onBlur={() => { handleSubmit(inputText) }}
                         autoFocus
                         value={inputText}

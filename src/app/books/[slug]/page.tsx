@@ -5,6 +5,7 @@ import { getBookById } from "@/database/crud/getItemById";
 import { DataTable } from "@/components/datatable/data-table";
 import { columns } from "./columns";
 import { InputField } from "@/components/InputField";
+import Link from "next/link";
 
 export default async function page({ params }: { params: { slug: string } }) {
 
@@ -21,18 +22,17 @@ export default async function page({ params }: { params: { slug: string } }) {
         </div>
       <div className=" flex gap-5 justify-between w-full px-14">
         <div>
-          <p>edit details</p>
-          <InputField itemId={book!.id} itemText={book!.name} />
+          <label htmlFor="bookName">Book Name: </label>
+          <InputField inputId="bookName" itemId={book!.id} itemText={book!.name} />
         </div>
         <div>
-          <p>Assign</p>
+          <Link href={`/lend`}>Assign Book</Link>
         </div>
       </div>
       <div className="w-full">
         <DataTable columns={columns} data={book!.lending} />
-
       </div>
-      <pre>{JSON.stringify(book, undefined, 2)}</pre>
+      {/* <pre>{JSON.stringify(book, undefined, 2)}</pre> */}
     </main>
   );
 }
