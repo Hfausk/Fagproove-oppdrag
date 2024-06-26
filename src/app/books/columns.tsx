@@ -54,17 +54,19 @@ export const columns: ColumnDef<Book>[] = [
                         > Copy ID
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        
+                        {book.whoHasIt?.id !== 0 ?(
+                            <DropdownMenuItem>
+                                <Link href={`/students/${book.whoHasIt?.id}`}>
+                                View Student
+                                </Link>
+                            </DropdownMenuItem>
+                        ) : null}
                         <DropdownMenuItem>
                             <Link href={`/books/${book.id}`}>
                             View Book
                             </Link>
                         </DropdownMenuItem> 
-                        <DropdownMenuItem>
-                            <Link href={`/books/${book.whoHasIt?.id}`}>
-                            View Student
-                            </Link>
-                        </DropdownMenuItem> 
+
                         <DropdownMenuItem></DropdownMenuItem> {/* //TODO: Add link to edit book page */}
                     </DropdownMenuContent>
                 </DropdownMenu>
