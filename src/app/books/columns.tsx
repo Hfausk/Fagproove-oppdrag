@@ -1,8 +1,8 @@
 "use client"
 
-import type { Book } from "@/database/types"
+import type { Book, ReturnBooks } from "@/database/types"
 import { ColumnDef } from "@tanstack/react-table"
-import { MoreHorizontal } from "lucide-react"
+import { MoreHorizontal, Table } from "lucide-react"
 import React from "react"
 
 import { Button } from "../../components/ui/button"
@@ -16,12 +16,15 @@ import {
 } from "../../components/ui/dropdown-menu"
 import Link from "next/link"
 import { deleteBookById } from "@/database/crud/remove"
+import {
+    TableCell,
+  } from "@/components/ui/table"
 
 // Define the type of the data that will be displayed in the table
 
 
 // Define the columns that will be displayed in the table
-export const columns: ColumnDef<Book>[] = [
+export const columns: ColumnDef<ReturnBooks>[] = [
     {
         accessorKey: "id",
         header: "ID"
@@ -33,6 +36,22 @@ export const columns: ColumnDef<Book>[] = [
     {
         accessorKey: "whoHasIt.name",
         header: "Student"
+    },
+    {
+        accessorKey: "whenWasLent",
+        header: "Lent At"
+    },
+    {
+        accessorKey: "whenSouldBeReturned",
+        header: "Should be returned"
+    },
+    {
+        accessorKey: "isLate",
+        header: "Is overdue",
+        cell: ({row}) => {
+            const isLate = row.original.isLate;
+            return isLate ? "Yes" : "No";
+        }
     },
     {
         id: "actions",

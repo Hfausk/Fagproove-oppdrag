@@ -2,7 +2,7 @@
 
 import { unstable_noStore as noStore, revalidatePath } from 'next/cache';
 import { lending, books, students } from '../schema';
-import { eq, or, sql } from 'drizzle-orm';
+import { eq, is, or, sql } from 'drizzle-orm';
 import { db } from '../db'
 
 
@@ -20,6 +20,7 @@ export async function getAllStudents() {
 
 export async function getAllBooks() {
     noStore() // fix for the next cache issue
+    const lendingDuration = 365
 
     const booksData = await db.query.books.findMany({
         orderBy: (book, { asc }) => [asc(book.name)],
@@ -29,20 +30,34 @@ export async function getAllBooks() {
                 where: (lending, { isNull }) => isNull(lending.deliverdAt),
                 with: {
                     student: {
-
+                        columns: {
+                            id: true,
+                            name: true
+                        } 
                     }
                 }
             }
         },
     })
 
-    console.log(JSON.stringify(booksData, undefined, 2))
+    const formatetDate = (date: Date) => {
+      const year = date.getFullYear()
+      const month = date.getMonth() + 1
+      const day = date.getDate()
+    
+        return `${day}-${month}-${year}`
+    }
 
+
+    
     const formatedBooks = booksData.map((book) => {
         return {
             id: book.id,
             name: book.name,
-            whoHasIt: book.lending[0]?.student || { id: 0, name: 'No one' }
+            whoHasIt: book.lending[0]?.student || { id: 0, name: 'No one',},
+            whenWasLent: book.lending[0] ? formatetDate(book.lending[0].lentAt) : "Not lent out",
+            whenSouldBeReturned:book.lending[0] ? formatetDate(new Date(new Date(book.lending[0]?.lentAt).setDate(book.lending[0]?.lentAt.getDate() + lendingDuration))) : "Not lent out",
+            isLate: book.lending[0] ? new Date() > new Date(new Date(book.lending[0]?.lentAt).setDate(book.lending[0]?.lentAt.getDate() + lendingDuration)) : false
         }
     })
     revalidatePath("/")

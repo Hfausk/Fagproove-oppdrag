@@ -1,10 +1,12 @@
 "use client"
-import { Button } from "@/components/ui/button"
+
 import {
   ColumnDef,
-  getPaginationRowModel,
+  ColumnFiltersState,
   flexRender,
   getCoreRowModel,
+  getPaginationRowModel,
+  getFilteredRowModel,
   useReactTable,
 } from "@tanstack/react-table"
 
@@ -19,7 +21,16 @@ import {
   TableRow,
 } from "../ui/table"
 import { createBook } from "@/database/crud/create";
-
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 
 
 interface DataTableProps<TData, TValue> {
@@ -31,9 +42,14 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    []
+  )
   const table = useReactTable({
     data,
     columns,
+    onColumnFiltersChange: setColumnFilters,
+    getFilteredRowModel: getFilteredRowModel(),
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     initialState: {
@@ -41,7 +57,11 @@ export function DataTable<TData, TValue>({
         pageSize: 50,
       },
     },
+    state: {
+      columnFilters,
+    }
   })
+
 
   const [name, setName] = useState("")
   const handleSubmit = (name: string) => {
@@ -54,6 +74,55 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
+      <div className="flex justify-between">
+        <Input
+          placeholder="Search name.."
+          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
+          onChange={(event) =>
+            table.getColumn("name")?.setFilterValue(event.target.value)
+          }
+          className="max-w-sm"
+        />
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" size="sm">
+              Filter overdue
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent side="right" align="start">
+            <DropdownMenuItem>
+            <Button
+              variant="ghost"
+              onClick={() => {
+                table.getColumn("isLate")?.setFilterValue(true)
+              }}
+              className="w-full"
+            >Only late books</Button>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+            <Button
+              variant="ghost"
+              onClick={() => {
+                table.getColumn("isLate")?.setFilterValue(false)
+              }}
+              className="w-full"
+            >Only available books</Button>
+
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+            <Button
+              variant="ghost"
+              onClick={() => {
+                table.getColumn("isLate")?.setFilterValue(undefined)
+              }}
+              className="w-full"
+            >All books</Button>
+
+            </DropdownMenuItem>
+
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
       <div className="rounded-md border">
         <Table>
           <TableHeader>
@@ -82,7 +151,7 @@ export function DataTable<TData, TValue>({
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} className={row.getValue("isLate") === false ? "bg-green-400/40" : "bg-red-400/50"} >
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}

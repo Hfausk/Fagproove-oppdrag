@@ -15,6 +15,7 @@ export default async function page() {
     return (
       <main className="flex min-h-screen flex-col items-center p-24 w-screen">
         <div className="w-[800px]">
+          <h1 className="text-4xl">All students</h1>
         <DataTable columns={columns} data={students} />
         </div>
       </main>
