@@ -1,5 +1,5 @@
 
-# Fredag 24.06.2024
+# Mandag 24.06.2024
 
 
 | Hva er jobbet med i dag |
