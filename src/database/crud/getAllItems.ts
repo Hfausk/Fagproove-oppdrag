@@ -13,6 +13,7 @@ export async function getAllStudents() {
 
     const students = await db.query.students.findMany({
         orderBy: (student, { asc }) => [asc(student.name)],
+        where: (student, { isNull }) => isNull(student.deletedAt)
     })
     return students
 }
@@ -20,8 +21,9 @@ export async function getAllStudents() {
 export async function getAllBooks() {
     noStore() // fix for the next cache issue
 
-    const books = await db.query.books.findMany({
+    const booksData = await db.query.books.findMany({
         orderBy: (book, { asc }) => [asc(book.name)],
+        where: (book, { isNull }) => isNull(book.deletedAt),
         with: {
             lending: {
                 where: (lending, { isNull }) => isNull(lending.deliverdAt),
@@ -31,10 +33,12 @@ export async function getAllBooks() {
                     }
                 }
             }
-        }
+        },
     })
 
-    const formatedBooks = books.map((book) => {
+    console.log(JSON.stringify(booksData, undefined, 2))
+
+    const formatedBooks = booksData.map((book) => {
         return {
             id: book.id,
             name: book.name,
