@@ -1,7 +1,7 @@
 
 export type Lending = {
-    bookId: number;
-    studentId: number;
+    bookId: number | null;
+    studentId: number | null;
     lentAt: Date;
     deliverdAt: Date | null;
 }
