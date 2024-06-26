@@ -2,7 +2,7 @@
 
 import React from "react";
 import { getStudentById } from "@/database/crud/getItemById";
-import { DataTable } from "@/components/datatable/dataStudents-table";
+import { DataTable } from "@/components/datatable/data-table";
 import { columns } from "./columns";
 import { InputField } from "@/components/InputField/studentInput";
 import Link from "next/link";

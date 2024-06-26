@@ -2,10 +2,10 @@
 
 import React from "react";
 import { getBookById } from "@/database/crud/getItemById";
-import { DataTable } from "@/components/datatable/dataBooks-table";
+import { DataTable } from "@/components/datatable/data-table";
 import { columns } from "./columns";
 import { InputField } from "@/components/InputField/bookInput";
-import Link from "next/link";
+
 
 export default async function page({ params }: { params: { slug: string } }) {
 
@@ -24,11 +24,8 @@ export default async function page({ params }: { params: { slug: string } }) {
           <label htmlFor="bookName">Set book name: </label>
           <InputField inputId="bookName" itemId={book!.id} itemText={book!.name} />
         </div>
-        <div>
-          <Link href={`/lend`}>Assign Book</Link>
-        </div>
       </div>
-      <div className="w-full">
+      <div className="w-[800px]">
         <DataTable columns={columns} data={book!.lending} />
       </div>
       {/* <pre>{JSON.stringify(book, undefined, 2)}</pre> */}
