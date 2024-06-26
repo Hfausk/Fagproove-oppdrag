@@ -16,13 +16,12 @@ export default async function page({ params }: { params: { slug: string } }) {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <div className="flex w-full">
-        
         <h1 className=" p-3  text-4xl">ID: {book?.id}</h1>
         <h1 className=" p-3  text-4xl"> Name: {book?.name}</h1>
         </div>
       <div className=" flex gap-5 justify-between w-full px-14">
         <div>
-          <label htmlFor="bookName">Book Name: </label>
+          <label htmlFor="bookName">Set book name: </label>
           <InputField inputId="bookName" itemId={book!.id} itemText={book!.name} />
         </div>
         <div>

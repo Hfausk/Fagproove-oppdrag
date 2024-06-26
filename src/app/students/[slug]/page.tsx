@@ -4,7 +4,7 @@ import React from "react";
 import { getStudentById } from "@/database/crud/getItemById";
 import { DataTable } from "@/components/datatable/data-table";
 import { columns } from "./columns";
-import { InputField } from "@/components/InputField/bookInput";
+import { InputField } from "@/components/InputField/studentInput";
 import Link from "next/link";
 
 export default async function page({ params }: { params: { slug: string } }) {
@@ -22,7 +22,7 @@ export default async function page({ params }: { params: { slug: string } }) {
         </div>
       <div className=" flex gap-5 justify-between w-full px-14">
         <div>
-          <label htmlFor="studentName">student Name: </label>
+          <label htmlFor="studentName">Set student Name: </label>
           <InputField inputId="studentName" itemId={student!.id} itemText={student!.name} />
         </div>
         <div>
@@ -32,6 +32,7 @@ export default async function page({ params }: { params: { slug: string } }) {
       <div className="w-full">
         <h1 className="text-2xl">Lending History</h1>
         <DataTable columns={columns} data={student!.lending} />
+        <pre>{JSON.stringify(student, undefined, 2)}</pre>
       </div>
     </main>
   );

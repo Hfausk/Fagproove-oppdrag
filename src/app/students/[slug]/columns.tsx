@@ -12,6 +12,10 @@ export const columns: ColumnDef<Lending>[] = [
     header: "Student ID",
   },
   {
+    accessorKey: "book.name",
+    header: "Book Name",
+  },
+  {
     accessorKey: "lentAt",
     header: "Lent At",
   },
