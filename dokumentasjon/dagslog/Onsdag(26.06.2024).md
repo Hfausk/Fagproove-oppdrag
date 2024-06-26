@@ -21,7 +21,8 @@ Løsning fyller nå alle kravene i oppgaven. Det er noen ting som som jeg skulle
 
 
 ## Hva som gjenstår
-    dokumentasjon
+
+dokumentasjon
 
 
 
