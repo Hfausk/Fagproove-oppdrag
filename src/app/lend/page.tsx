@@ -1,6 +1,6 @@
 
 
-import { getAllStudents, getAllUnlentBooks } from "@/database/crud/fetch";
+import { getAllStudents, getAllUnlentBooks } from "@/database/crud/getAllItems";
 import { columns } from "./bookColumns";
 import { FilterDataTable } from "@/components/datatable/filterData-table";
 import AssignBookToStudent from "@/components/assignBookToStudent";
