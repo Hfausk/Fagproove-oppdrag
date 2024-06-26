@@ -38,4 +38,5 @@ Prototypen skal kunne:
 
 - [Fredag 21.06.2024](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/dagslog/Fredag(21.06.2024).md)
 - [Mandag 24.06.2024](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/dagslog/Mandag(24.06.2024).md)
-- [Tirsdag 25.06.2024](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/dagslog/Tirdag(24.06.2024).md)
+- [Tirsdag 25.06.2024](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/dagslog/Tirdag(25.06.2024).md)
+- [Onsdag 26.06.2024](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/dagslog/Onsdag(26.06.2024).md)
