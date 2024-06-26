@@ -1,9 +1,10 @@
-import { relations } from 'drizzle-orm';
+import { relations, sql } from 'drizzle-orm';
 import { integer, pgTable, serial, text, timestamp, primaryKey } from 'drizzle-orm/pg-core';
 
 export const students = pgTable('students', {
     id: serial('id').primaryKey(),
     name: text('name').notNull(),
+    deletedAt: timestamp('deleted_at'),
 });
 
 export const studentsRelation = relations(students, ({ many }) => ({
@@ -13,6 +14,7 @@ export const studentsRelation = relations(students, ({ many }) => ({
 export const books = pgTable('books', {
     id: serial('id').primaryKey(),
     name: text('name').notNull(),
+    deletedAt: timestamp('deleted_at'),
 });
 
 export const booksRelation = relations(books, ({ many }) => ({
@@ -21,8 +23,8 @@ export const booksRelation = relations(books, ({ many }) => ({
 }));
 
 export const lending = pgTable('lending', {
-    bookId: integer('book_id').notNull().references(() => books.id),
-    studentId: integer('student_id').notNull().references(() => students.id),
+    bookId: integer('book_id').references(() => books.id),
+    studentId: integer('student_id').references(() => students.id),
     lentAt: timestamp('lent_at').notNull().defaultNow(),
     deliverdAt: timestamp('delivered_at'),
 }, (table) => {

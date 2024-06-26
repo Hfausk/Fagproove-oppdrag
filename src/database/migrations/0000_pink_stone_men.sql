@@ -1,11 +1,12 @@
 CREATE TABLE IF NOT EXISTS "books" (
 	"id" serial PRIMARY KEY NOT NULL,
-	"name" text NOT NULL
+	"name" text NOT NULL,
+	"deleted_at" timestamp
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "lending" (
-	"book_id" integer NOT NULL,
-	"student_id" integer NOT NULL,
+	"book_id" integer,
+	"student_id" integer,
 	"lent_at" timestamp DEFAULT now() NOT NULL,
 	"delivered_at" timestamp,
 	CONSTRAINT "lending_book_id_student_id_lent_at_pk" PRIMARY KEY("book_id","student_id","lent_at")
@@ -13,7 +14,8 @@ CREATE TABLE IF NOT EXISTS "lending" (
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "students" (
 	"id" serial PRIMARY KEY NOT NULL,
-	"name" text NOT NULL
+	"name" text NOT NULL,
+	"deleted_at" timestamp
 );
 --> statement-breakpoint
 DO $$ BEGIN
