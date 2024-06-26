@@ -9,7 +9,6 @@ export function InputField({ inputId, itemId, itemText }: { inputId: string, ite
 
     const handleSubmit = (input: string) => {
         updateBookText(itemId, input)
-        console.log(input, "as")
     }
 
     return (
