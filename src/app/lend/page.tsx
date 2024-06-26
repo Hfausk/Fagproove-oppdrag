@@ -18,7 +18,6 @@ export default async function page() {
                     <FilterDataTable searchableColumn="name" columns={columns} data={books} />
                 </div>
                 <AssignBookToStudent />
-                <pre>{JSON.stringify(books, undefined, 2)}</pre>
                 <div className="w-[300px]">
                     <h1 className="text-4xl">Students</h1>
                     <FilterDataTable searchableColumn="name" columns={columns} data={students} />
