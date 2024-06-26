@@ -17,3 +17,12 @@ export type Book = {
     name: string;
     whoHasIt?: Student;
 }
+
+export type ReturnBooks = {
+    id: number;
+    name: string;
+    whoHasIt: Student;
+    whenWasLent: string;
+    whenSouldBeReturned: string;
+    isLate: boolean;
+}
