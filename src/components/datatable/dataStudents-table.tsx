@@ -9,7 +9,7 @@ import {
 } from "@tanstack/react-table"
 
 import React from "react";
-
+import { useState } from "react";
 import {
   Table,
   TableBody,
@@ -18,7 +18,7 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table"
-
+import { createStudent } from "@/database/crud/create";
 
 
 
@@ -43,7 +43,14 @@ export function DataTable<TData, TValue>({
     },
   })
 
-
+  const [name, setName] = useState("")
+  const handleSubmit = (name: string) => {
+    if (name === "") {
+      return
+    }
+    console.log(name)
+    createStudent(name)
+  }
 
   return (
     <div>
@@ -87,6 +94,21 @@ export function DataTable<TData, TValue>({
                 <TableCell className="text-center" colSpan={columns.length}>No data</TableCell>
               </TableRow>
             )}
+            <TableRow>
+              <TableCell>New Student:</TableCell>
+              <TableCell>
+                <input name='input_text'
+                  autoFocus
+                  value={name}
+                  className='bg-transparent border-grey-500 border-2'
+                  onChange={(event) => { setName(event.target.value) }}
+                  onKeyDown={(event) => { if (event.key === 'Enter') { handleSubmit(name) } }}
+                />
+              </TableCell>
+              <TableCell>
+                <Button onClick={() => { handleSubmit(name) }}>Add student</Button>
+              </TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </div>
