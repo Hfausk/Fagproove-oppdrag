@@ -15,6 +15,7 @@ import {
     DropdownMenuTrigger,
 } from "../../components/ui/dropdown-menu"
 import Link from "next/link"
+import { deleteStudentById } from "@/database/crud/remove"
 
 // Define the type of the data that will be displayed in the table
 
@@ -55,7 +56,14 @@ export const columns: ColumnDef<Book>[] = [
                             <Link href={`/students/${student.id}`}>
                             View Student
                             </Link>
-                        </DropdownMenuItem> 
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <Button
+                             variant="ghost" 
+                             className="w-full bg-red-500"
+                             onClick={() => deleteStudentById(student.id) }
+                             >Delete Student</Button>
+                        </DropdownMenuItem>
                         <DropdownMenuItem></DropdownMenuItem> {/* //TODO: Add link to edit book page */}
                     </DropdownMenuContent>
                 </DropdownMenu>
