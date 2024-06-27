@@ -1,8 +1,9 @@
 # Brukerveiledning for Bokside
 
-## Elever
+## Bøker side
 
 Her er info på håndtere bøker på nettsiden
+Bruk bilde under som ref.
 
 ![alt text](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/GuideForBookPage.png?raw=true)
 

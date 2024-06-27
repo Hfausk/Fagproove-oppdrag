@@ -35,7 +35,7 @@ export default function AssignBookToStudent() {
                         console.error(error)
                     }
                 }}
-            >Click</Button>
+            >Assign</Button>
         </div>
     )
 }

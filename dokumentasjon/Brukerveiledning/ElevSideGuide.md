@@ -3,11 +3,12 @@
 ## Elever
 
 Her er info på håndtere elever på nettsiden
+Bruk bilde under som ref.
 
 ![alt text](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/GuideForAddElev.png?raw=true)
 
 
-### Hvordan se legge til en ny elev
+### Hvordan legge til en ny elev
 
 1. Naviger til elever siden.
 2. Skriv navn på elev i felt.
