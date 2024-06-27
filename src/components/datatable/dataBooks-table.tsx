@@ -97,7 +97,7 @@ export function DataTable<TData, TValue>({
                 table.getColumn("isLate")?.setFilterValue(true)
               }}
               className="w-full"
-            >Only late books</Button>
+            >Overdue books</Button>
             </DropdownMenuItem>
             <DropdownMenuItem>
             <Button
@@ -106,7 +106,7 @@ export function DataTable<TData, TValue>({
                 table.getColumn("isLate")?.setFilterValue(false)
               }}
               className="w-full"
-            >Only available books</Button>
+            >Not overdue books</Button>
 
             </DropdownMenuItem>
             <DropdownMenuItem>

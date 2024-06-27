@@ -2,9 +2,9 @@
 
 ## Elever
 
-Her er info på håndtere elever på nettsiden
+Her er info på håndtere bøker på nettsiden
 
-![alt text](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/GuideForAddElev.png?raw=true)
+![alt text](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/GuideForBookPage.png?raw=true)
 
 
 ### Hvordan se legge til en ny bok
