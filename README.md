@@ -17,7 +17,7 @@ Prototypen skal kunne:
 - ORM: [Drizzle](https://orm.drizzle.team/)
 - UI: [Shadcn/ui](https://ui.shadcn.com/)
 - UI tables: [TanStack](https://tanstack.com/table/latest)
-- Host: [hosting av side](https://vercel.com/)
+- Host: [Vercel](https://vercel.com/)
 
 
 ### Hvordan å sette opp
