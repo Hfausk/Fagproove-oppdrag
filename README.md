@@ -63,10 +63,10 @@ npm run db:migrate // må kjøres for å dytte endringene ut til database
 
 ## Dokumentasjon
 
-- [System dokumentasjon]()
-- [Test rapport]()
-- [Brukerveiledning]()
-- [HMS-dokumentasjon]()
+- [System dokumentasjon](https://github.com/Hfausk/Fagproove-oppdrag/tree/main/dokumentasjon/System_Dokumentasjon)
+- [Test rapport](https://github.com/Hfausk/Fagproove-oppdrag/tree/main/dokumentasjon/TestRapport)
+- [Brukerveiledning](https://github.com/Hfausk/Fagproove-oppdrag/tree/main/dokumentasjon/Brukerveiledning)
+- [HMS-dokumentasjon](https://github.com/Hfausk/Fagproove-oppdrag/tree/main/dokumentasjon/Hms-dokumentasjon)
 
 
 
@@ -77,3 +77,4 @@ npm run db:migrate // må kjøres for å dytte endringene ut til database
 - [Mandag 24.06.2024](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/dagslog/Mandag(24.06.2024).md)
 - [Tirsdag 25.06.2024](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/dagslog/Tirdag(25.06.2024).md)
 - [Onsdag 26.06.2024](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/dagslog/Onsdag(26.06.2024).md)
+- [Torsdag 27.06.2024](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/dagslog/Torsdag(27.06.2024).md)
