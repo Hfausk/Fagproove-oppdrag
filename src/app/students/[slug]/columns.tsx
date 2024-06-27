@@ -8,8 +8,8 @@ import type { Lending } from "../../../database/types"
 
 export const columns: ColumnDef<Lending>[] = [
   {
-    accessorKey: "studentId",
-    header: "Student ID",
+    accessorKey: "book.id",
+    header: "Book ID",
   },
   {
     accessorKey: "book.name",
