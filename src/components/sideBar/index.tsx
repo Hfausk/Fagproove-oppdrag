@@ -6,7 +6,7 @@ export default function SideBar() {
 
 
     return (
-        <div className="w-80 flex flex-col border-r-2 border-slate-200 gap-10">
+        <div className="w-80 pl-2 flex flex-col border-r-2 border-slate-200 gap-10">
             <div>
                 <Link className='text-3xl w-full' href="/books">Bøker</Link>
                 <Separator />
