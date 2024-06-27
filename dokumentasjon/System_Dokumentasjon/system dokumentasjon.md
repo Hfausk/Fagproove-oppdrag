@@ -7,7 +7,8 @@
 
 ### Hvordan jeg skulle hostet nettsiden hadde det vert live
   Jeg ville valgt å hoste nettsiden gjennom Vercel sine servicer.
-  Pro planen til vercel koster 20$ i måneden og vil mer enn nok dekke behovene for løsningen
+  Pro planen til vercel koster 20$ i måneden og vil mer enn nok dekke behovene for løsningen.
+  Neon vil hoste databasen dette vil koste 19$ i måneden.
 
 ### Hva som mangler i systemet
 
