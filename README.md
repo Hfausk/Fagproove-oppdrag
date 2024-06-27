@@ -23,14 +23,17 @@ Prototypen skal kunne:
 - ORM: [Drizzle](https://orm.drizzle.team/)
 - UI: [Shadcn/ui](https://ui.shadcn.com/)
 - UI tables: [TanStack](https://tanstack.com/table/latest)
-- UI: [cmdk](https://github.com/pacocoursey/cmdk)
 
 
+## Dokumentasjon
+
+<details><summary>System dokumentasjon</summary>
+
+  ![alt text](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/DatabaseDesign.png?raw=true)
+</details>
 
 
-
-
-
+    ![alt text](https://github.com/Hfausk/Fagproove-oppdrag/blob/main/dokumentasjon/DatabaseDesign.png)
 
 
 
