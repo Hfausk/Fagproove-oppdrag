@@ -14,5 +14,5 @@
 
 | Hva som mangler fra planen som ble satt |
 |---|
-| Ingen ting|
+| Ingen ting(håper jeg)|
 
