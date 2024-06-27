@@ -10,6 +10,30 @@ Prototypen skal kunne:
 - Se historikk på hvilke elever som har lånt en spesifikk bok
 - Se historikk på hvilke bøker en spesifikk elev har lånt.
 
+### Overblikk av filstruktur
+``` bash
+└── src
+    ├── app
+    │   ├── books # Folder for Books side
+    │   │   └── [slug] #Id til bok blir brukt i url for unik side av en bok
+    │   ├── lend # Folder for lending side
+    │   └── students # Folder for students side
+    │       └── [slug] # Id til student blir brukt i url for unik side av en student
+    ├── components # Alle komponents i proskjektet
+    │   ├── InputField 
+    │   ├── assignBookToStudent
+    │   ├── datatable
+    │   ├── sideBar
+    │   ├── topbar
+    │   └── ui # Shad ui komponenter
+    ├── database # alt som har med database ligger her
+    │   ├── crud
+    │   └── migrations
+    │       └── meta
+    └── lib # Shad ui generert
+```
+
+
 ### Teknologier brukt i prosjekt
 
 - Rammeverk: [NextJs](https://nextjs.org/)
