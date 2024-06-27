@@ -26,7 +26,6 @@ export default async function page({ params }: { params: { slug: string } }) {
           <InputField inputId="studentName" itemId={student!.id} itemText={student!.name} />
         </div>
         <div>
-          <Link href={`/lend`}>Assign student</Link>
         </div>
       </div>
       <div className="w-full">

@@ -11,7 +11,6 @@ export default function SideBar() {
                 <Link className='text-3xl w-full' href="/books">Books</Link>
                 <Separator />
                 <Link className='text-1xl w-full' href="/lend">Assign book</Link>
-                <Link className='text-1xl w-full' href="/deliverd">Deliver book</Link>
 
             </div>
             <div>
