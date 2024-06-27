@@ -16,9 +16,10 @@ import {
 } from "../../components/ui/dropdown-menu"
 import Link from "next/link"
 import { deleteBookById } from "@/database/crud/remove"
+import { deliverNewBook } from "@/database/crud/update"
 import {
     TableCell,
-  } from "@/components/ui/table"
+} from "@/components/ui/table"
 
 // Define the type of the data that will be displayed in the table
 
@@ -48,7 +49,7 @@ export const columns: ColumnDef<ReturnBooks>[] = [
     {
         accessorKey: "isLate",
         header: "Is overdue",
-        cell: ({row}) => {
+        cell: ({ row }) => {
             const isLate = row.original.isLate;
             return isLate ? "Yes" : "No";
         }
@@ -74,24 +75,36 @@ export const columns: ColumnDef<ReturnBooks>[] = [
                         > Copy ID
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        {book.whoHasIt?.id !== 0 ?(
+                        {book.whoHasIt?.id !== 0 ? (
                             <DropdownMenuItem>
                                 <Link href={`/students/${book.whoHasIt?.id}`}>
-                                View Student
+                                    View Student
                                 </Link>
                             </DropdownMenuItem>
                         ) : null}
                         <DropdownMenuItem>
                             <Link href={`/books/${book.id}`}>
-                            View Book
+                                View Book
                             </Link>
-                        </DropdownMenuItem> 
+                        </DropdownMenuItem>
                         <DropdownMenuItem>
                             <Button
-                             variant="ghost" 
-                             className="w-full bg-red-500"
-                             onClick={() => deleteBookById(book.id) }
-                             >Delete Book</Button>
+                                variant="ghost"
+                                className="w-full bg-red-500"
+                                onClick={() => deleteBookById(book.id)}
+                            >Delete Book</Button>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+
+                            onClick={async () => {
+                                try {
+                                    console.log()
+                                    await deliverNewBook(Number(book.id), new Date())
+                                } catch (error) {
+                                    console.error(error)
+                                }
+                            }}
+                        >Deliver
                         </DropdownMenuItem>
 
                         <DropdownMenuItem></DropdownMenuItem> {/* //TODO: Add link to edit book page */}

@@ -1,8 +1,8 @@
 "use server"
 
-import { eq } from 'drizzle-orm';
+import { and, eq, isNull } from 'drizzle-orm';
 import { db } from '../db';
-import { books, students } from '../schema';
+import { books, students, lending} from '../schema';
 import { revalidatePath } from 'next/cache'
 
 
@@ -22,4 +22,13 @@ export async function updateStudentText(targetId: number, newText: string) {
         .where(eq(students.id, targetId))
     
         revalidatePath("/")
+}
+
+export async function deliverNewBook(bookId: number,  deliverDate: Date) {
+
+    await db.update(lending)
+    .set({deliverdAt: deliverDate})
+    .where(and(eq(lending.bookId, bookId), isNull(lending.deliverdAt)));
+
+    revalidatePath("/")
 }
